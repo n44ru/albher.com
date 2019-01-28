@@ -1,0 +1,50 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Servicios</h1>
+            <hr>
+            <a href="{{ path('admin_services_new') }}"><button class="btn btn-primary">Insertar</button></a>
+            <hr>
+            <table class="table dynamic">
+                <thead>
+                <tr>
+                    <th>Título ES</th>
+                    <th>Título EN</th>
+                    <th>Título DE</th>
+                    <th>Texto ES</th>
+                    <th>Texto EN</th>
+                    <th>Texto DE</th>
+                    <th>Se Reserva?</th>
+                    <th>Imagen</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for service in services %}
+                    <tr>
+                        <td>{{ service.titlees }}</td>
+                        <td>{{ service.titleen }}</td>
+                        <td>{{ service.titlede }}</td>
+                        <td>{{ service.textes | slice(0,50) }}...</td>
+                        <td>{{ service.texten | slice(0,50) }}...</td>
+                        <td>{{ service.textde | slice(0,50) }}...</td>
+                        <td>{{ service.reserva  }}</td>
+                        <td><img class="img-thumbnail" src="{{ asset('uploads/images/'~ service.file1) }}"></td>
+                        <td><img class="img-thumbnail" src="{{ asset('uploads/images/'~ service.file2) }}"></td>
+                        <td><img class="img-thumbnail" src="{{ asset('uploads/images/'~ service.file3) }}"></td>
+                        <td><img class="img-thumbnail" src="{{ asset('uploads/images/'~ service.file4) }}"></td>
+                        <td>
+                            <a href="{{ path('admin_services_edit', { 'id': service.id }) }}"><button class="btn btn-danger"><i class="fa fa-edit"></i> </button> </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

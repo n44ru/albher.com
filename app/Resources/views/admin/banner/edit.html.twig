@@ -1,0 +1,22 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <div class="col-md-8">
+        <h1>Editar Portada</h1>
+        <hr>
+        <a href="{{ path('admin_banner_index') }}">
+            <button class="btn btn-primary">Volver</button>
+        </a>
+
+        <hr>
+        {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <br>
+        <input type="submit" value="Editar" class="btn btn-success"/>
+        {{ form_end(edit_form) }}
+        <br>
+        {{ form_start(delete_form) }}
+        <input type="submit" value="Eliminar" class="btn btn-danger">
+        {{ form_end(delete_form) }}
+    </div>
+{% endblock %}

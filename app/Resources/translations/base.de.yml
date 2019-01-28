@@ -1,0 +1,24 @@
+menu:
+    acerca: 'Over ons'
+    servicios: 'Services'
+    galeria: 'Galerij'
+    contactos: 'Contact'
+    hab: 'Kamers'
+    idioma: 'Sprache'
+web:
+    com: 'Reactie'
+    comsend: 'Verzenden'
+    ver: 'Mehr Sehen'
+lang:
+    es: 'Spanisch'
+    en: 'Englisch'
+    de: 'Deutsch'
+contacto:
+    n: 'Dein Name *'
+    e: 'Dein E-Mail *'
+    t: 'Dein Telefon *'
+    m: 'Deine Nachricht'
+book:
+   book: 'Bunchen Sie diesen Service'
+   arr: 'Startzeit'
+   add: 'Zusatzliche Informationen'

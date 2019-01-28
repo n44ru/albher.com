@@ -1,0 +1,39 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+            <h1>Acerca de</h1>
+            <hr>
+            {#<a href="{{ path('admin_about_new') }}"><button class="btn btn-primary">Insertar</button></a>#}
+            <table class="table dynamic">
+                <thead>
+                <tr>
+                    <th>Título ES</th>
+                    <th>Título EN</th>
+                    <th>Título DE</th>
+                    <th>Texto ES</th>
+                    <th>Texto EN</th>
+                    <th>Texto DE</th>
+                    <th>Imagen</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for about in abouts %}
+                    <tr>
+                        <td>{{ about.titlees }}</td>
+                        <td>{{ about.titleen }}</td>
+                        <td>{{ about.titlede }}</td>
+                        <td>{{ about.textes | slice(0,50) }}...</td>
+                        <td>{{ about.texten | slice(0,50) }}...</td>
+                        <td>{{ about.textde | slice(0,50) }}...</td>
+                        <td><img class="img-thumbnail" src="{{ asset('uploads/images/'~ about.file) }}"></td>
+                        <td>
+                            <a href="{{ path('admin_about_edit', { 'id': about.id }) }}"><button class="btn btn-danger"><i class="fa fa-edit"></i> </button> </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+{% endblock %}
+
+

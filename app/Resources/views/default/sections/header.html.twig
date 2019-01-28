@@ -1,0 +1,67 @@
+<!-- Header -->
+<header class="masthead">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        {#<ol class="carousel-indicators">#}
+            {#{% set x = 0 %}#}
+            {#{% for b in banner %}#}
+                {#<li data-target="#carouselExampleIndicators"#}
+                    {#data-slide-to="{{ x }}" {% if x == 0 %} class="active" {% endif %}></li>#}
+            {#{% endfor %}#}
+        {#</ol>#}
+        <div class="carousel-inner">
+            {% set i=0 %}
+            {% for b in banner %}
+                <div class="carousel-item car-max {% if i==0 %} active {% endif %}">
+                    <img class="d-block w-100" src="{{ asset('uploads/images/'~ b.file) }}" alt="Albher Banner Photo">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h1 id="text-sh-1">{{ b.textonees }}</h1>
+                        <h4 id="text-sh-2">{{ b.texttwoes }}</h4>
+                        <a class="btn btn-primary btn-xl text-uppercase" href="#headerModal{{ i }}" data-toggle="modal" >{{ 'web.ver' | trans({}, 'base') }}</a>
+                    </div>
+                </div>
+                <div class="portfolio-modal modal fade" id="headerModal{{ i }}" tabindex="-1" role="dialog"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="close-modal" data-dismiss="modal">
+                                <div class="lr">
+                                    <div class="rl"></div>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-8 mx-auto">
+                                        <div class="modal-body">
+                                            <!-- Project Details Go Here -->
+                                            <h2 class="text-uppercase black">{{ b.textonees }}</h2>
+                                            <h3 class="text-uppercase black">{{ b.texttwoes }}</h3>
+                                            <p class="black">{{ b.fulles | nl2br }}</p>
+                                            <br>
+                                            <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                                OK!
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% set i=i+1 %}
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    {#<div class="intro-text">#}
+    {#<div class="intro-lead-in">{{ banner.textonees }}</div>#}
+    {#<div class="intro-heading text-uppercase">{{ banner.texttwoes }}</div>#}
+    {#<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Leer Más</a>#}
+    {#</div>#}
+</header>

@@ -1,0 +1,93 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Habitaciones</h1>
+            <hr>
+            <a href="{{ path('admin_room_new') }}">
+                <button class="btn btn-primary">Insertar</button>
+            </a>
+            <hr>
+            <table class="table dynamic">
+                <tr>
+                    <th>Tituloes</th>
+                    <th>Tituloen</th>
+                    <th>Titulode</th>
+                    <th>Textoes</th>
+                    <th>Textoen</th>
+                    <th>Textode</th>
+                    <th>Imágenes</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% set i=0 %}
+                {% for room in rooms %}
+                    <tr>
+                        <td>{{ room.tituloes }}</td>
+                        <td>{{ room.tituloen }}</td>
+                        <td>{{ room.titulode }}</td>
+                        <td>{{ room.textoes | slice(0,50) }}...</td>
+                        <td>{{ room.textoen | slice(0,50) }}...</td>
+                        <td>{{ room.textode | slice(0,50) }}...</td>
+                        <td>
+                            <a href="#headerModal{{ i }}" data-toggle="modal">
+                                <button class="btn btn-primary"><i class="fa fa-image"></i></button>
+                            </a>
+                        </td>
+                        <td>
+                            <a href="{{ path('admin_room_edit', { 'id': room.id }) }}">
+                                <button class="btn btn-danger"><i class="fa fa-edit"></i></button>
+                            </a>
+                        </td>
+                    </tr>
+                    <div class="modal fade" id="headerModal{{ i }}" tabindex="-1" role="dialog"
+                         aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                </div>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-lg-8 mx-auto">
+                                            <div class="modal-body">
+                                                <h3>Imagen 1</h3>
+                                                <img class="img-thumbnail" src="{{ asset('uploads/images/'~ room.file1) }}">
+                                                <h3>Imagen 2</h3>
+                                                <img class="img-thumbnail" src="{{ asset('uploads/images/'~ room.file2) }}">
+                                                <h3>Imagen 3</h3>
+                                                <img class="img-thumbnail" src="{{ asset('uploads/images/'~ room.file3) }}">
+                                                <h3>Imagen 4</h3>
+                                                <img class="img-thumbnail" src="{{ asset('uploads/images/'~ room.file4) }}">
+                                                <h3>Imagen 5</h3>
+                                                <img class="img-thumbnail" src="{{ asset('uploads/images/'~ room.file5) }}">
+                                                <h3>Imagen 6</h3>
+                                                <img class="img-thumbnail" src="{{ asset('uploads/images/'~ room.file6) }}">
+                                                <h3>Imagen 7</h3>
+                                                <img class="img-thumbnail" src="{{ asset('uploads/images/'~ room.file7) }}">
+                                                <h3>Imagen 8</h3>
+                                                <img class="img-thumbnail" src="{{ asset('uploads/images/'~ room.file8) }}">
+                                                <h3>Imagen 9</h3>
+                                                <img class="img-thumbnail" src="{{ asset('uploads/images/'~ room.file9) }}">
+                                                <h3>Imagen 10</h3>
+                                                <img class="img-thumbnail" src="{{ asset('uploads/images/'~ room.file10) }}">
+                                                <h3>Imagen 11</h3>
+                                                <img class="img-thumbnail" src="{{ asset('uploads/images/'~ room.file11) }}">
+                                                <h3>Imagen 12</h3>
+                                                <img class="img-thumbnail" src="{{ asset('uploads/images/'~ room.file12) }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% set i=i+1 %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

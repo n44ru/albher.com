@@ -1,0 +1,24 @@
+menu:
+    acerca: 'Acerca de'
+    servicios: 'Servicios'
+    galeria: 'Galería'
+    contactos: 'Contáctenos'
+    hab: 'Habitaciones'
+    idioma: 'Idioma'
+web:
+    com: 'Comentar'
+    comsend: 'Enviar'
+    ver: 'Ver Más'
+lang:
+    es: 'Español'
+    en: 'Ingles'
+    de: 'Alemán'
+contacto:
+    n: 'Su Nombre *'
+    e: 'Su E-Mail *'
+    t: 'Su Telefono *'
+    m: 'Su Mensaje'
+book:
+   book: 'Reservar este Servicio'
+   arr: 'Hora de comienzo'
+   add: 'Información Adicional'

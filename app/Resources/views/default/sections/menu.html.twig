@@ -1,0 +1,38 @@
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <img src="{{ asset('img/logo.png') }}" class="logo">
+        <a class="navbar-brand js-scroll-trigger" href="{{ path('homepage') }}">Rent Room Albher</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="{{ path('rooms') }}#rooms">{{ 'menu.hab' | trans({}, 'base') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#services">{{ 'menu.acerca' | trans({}, 'base') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#portfolio">{{ 'menu.servicios' | trans({}, 'base') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#gallery">{{ 'menu.galeria' | trans({}, 'base') }}</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#contact">{{ 'menu.contactos' | trans({}, 'base') }}</a>
+                </li>
+                <div class="dropdown nav-item">
+                    <a class="nav-link dropdown-toggle cursor" data-toggle="dropdown">{{ 'menu.idioma' | trans({}, 'base') }}</a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'),{'_locale': 'en'}) }}"><img class="lang" src="{{ asset('img/lang/EN.png') }}"> {{ 'lang.en' | trans({}, 'base') }} </a>
+                        <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'),{'_locale': 'es'}) }}"><img class="lang" src="{{ asset('img/lang/ES.png') }}"> {{ 'lang.es' | trans({}, 'base') }} </a>
+                        <a class="dropdown-item" href="{{ path(app.request.attributes.get('_route'),{'_locale': 'de'}) }}"><img class="lang" src="{{ asset('img/lang/DE.png') }}"> {{ 'lang.de' | trans({}, 'base') }} </a>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,32 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <h1>Configuración</h1>
+    <hr>
+    {#<a href="{{ path('admin_about_new') }}"><button class="btn btn-primary">Insertar</button></a>#}
+    <table class="table dynamic">
+        <thead>
+        <tr>
+            <th>Correo</th>
+            <th>Cuenta de Facebook</th>
+            <th>Cuenta de Instagram</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for config in configs %}
+            <tr>
+                <td>{{ config.correo | slice(0.15) }} ...  </td>
+                <td>{{ config.facebook | slice(0.15) }} ... </td>
+                <td>{{ config.instagram | slice(0.15) }} ... </td>
+                <td>
+                    <a href="{{ path('config_edit', { 'id': config.id }) }}"><button class="btn btn-danger"><i class="fa fa-edit"></i> </button> </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+
+

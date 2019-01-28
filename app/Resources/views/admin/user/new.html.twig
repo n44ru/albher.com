@@ -1,0 +1,17 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-8">
+            <h1>Insertar un Usuario</h1>
+            <hr>
+            <a href="{{ path('admin_user_index') }}"><button class="btn btn-primary">Volver</button></a>
+            <hr>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <br>
+            <input type="submit" value="Insertar" class="btn btn-success"/>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

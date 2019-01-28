@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Admin{% endblock %}</title>
+    {% block stylesheets %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- Bootstrap core CSS -->
+        <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('vendor/datatable/css/jquery.dataTables.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('vendor/datatable/css/mbs-qdtf.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
+    {% endblock %}
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="#">Administración</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('admin_banner_index') }}">Portada</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('admin_about_index') }}">Acerca de</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('admin_services_index') }}">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('admin_room_index') }}">Habitaciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('admin_reviews_index') }}">Comentarios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('admin_gallery_index') }}">Galería</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('config_index') }}">Configuración</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ path('admin_user_index') }}">Usuarios</a>
+                        </li>
+                        {% if app.user %}
+                            <li class="nav-item">
+                                <a class="nav-link"> | </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
+                                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    {{ app.user.username }}
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ path('logout') }}">Salir</a>
+                                </div>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </nav>
+
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+</div>
+{% block javascripts %}
+    <!-- Bootstrap core JavaScript -->
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatable/js/jquery.datatables.min.js') }}"></script>
+    <script src="{{ asset('vendor/datatable/js/mbs-qdtf-fix.js') }}"></script>
+{% endblock %}
+</body>
+</html>

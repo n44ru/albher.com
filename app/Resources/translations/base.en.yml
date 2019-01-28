@@ -1,0 +1,24 @@
+menu:
+    acerca: 'About Us'
+    servicios: 'Services'
+    galeria: 'Gallery'
+    contactos: 'Contact Us'
+    hab: 'Rooms'
+    idioma: 'Language'
+web:
+    com: 'Comment'
+    comsend: 'Send'
+    ver: 'View More'
+lang:
+    es: 'Spanish'
+    en: 'English'
+    de: 'Deutsch'
+contacto:
+    n: 'Your Name *'
+    e: 'Your E-Mail *'
+    t: 'Phone Number *'
+    m: 'Your Message'
+book:
+   book: 'Book this Service'
+   arr: 'Start Hour'
+   add: 'Aditional Information'

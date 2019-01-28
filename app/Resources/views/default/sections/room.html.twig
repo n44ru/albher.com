@@ -1,0 +1,118 @@
+<section id="rooms">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <div class="modal-body">
+                {% for r in rooms %}
+                    <h2 class="section-heading text-uppercase text-center">{{ r.tituloes }}</h2>
+                    <p class="text-center">{{ r.textoes }}</p>
+                    <br>
+                    <div class="col-md-12">
+                        <div class="demo-gallery">
+                            <ul id="lightgallery" class="list-unstyled row">
+                                {% if r.file1 != null %}
+                                    <li class="col-md-2" data-src="{{ asset('uploads/images/' ~ r.file1) }}"
+                                        data-sub-html="<h4>Albher</h4><p>Imagenes de Habitación</p>">
+                                        <a href="">
+                                            <img class="img-thumbnail imagegallery" src="{{ asset('uploads/images/' ~ r.file1) }}">
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% if r.file2 != null %}
+                                    <li class="col-md-2" data-src="{{ asset('uploads/images/' ~ r.file2) }}"
+                                        data-sub-html="<h4>Albher</h4><p>Imagenes de Habitación</p>">
+                                        <a href="">
+                                            <img class="img-thumbnail imagegallery" src="{{ asset('uploads/images/' ~ r.file2) }}">
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% if r.file3 != null %}
+                                    <li class="col-md-2" data-src="{{ asset('uploads/images/' ~ r.file3) }}"
+                                        data-sub-html="<h4>Albher</h4><p>Imagenes de Habitación</p>">
+                                        <a href="">
+                                            <img class="img-thumbnail imagegallery" src="{{ asset('uploads/images/' ~ r.file3) }}">
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% if r.file4 != null %}
+                                    <li class="col-md-2" data-src="{{ asset('uploads/images/' ~ r.file4) }}"
+                                        data-sub-html="<h4>Albher</h4><p>Imagenes de Habitación</p>">
+                                        <a href="">
+                                            <img class="img-thumbnail imagegallery" src="{{ asset('uploads/images/' ~ r.file4) }}">
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% if r.file5 != null %}
+                                    <li class="col-md-2" data-src="{{ asset('uploads/images/' ~ r.file5) }}"
+                                        data-sub-html="<h4>Albher</h4><p>Imagenes de Habitación</p>">
+                                        <a href="">
+                                            <img class="img-thumbnail imagegallery" src="{{ asset('uploads/images/' ~ r.file5) }}">
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% if r.file6 != null %}
+                                    <li class="col-md-2" data-src="{{ asset('uploads/images/' ~ r.file6) }}"
+                                        data-sub-html="<h4>Albher</h4><p>Imagenes de Habitación</p>">
+                                        <a href="">
+                                            <img class="img-thumbnail imagegallery" src="{{ asset('uploads/images/' ~ r.file6) }}">
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% if r.file7 != null %}
+                                    <li class="col-md-2" data-src="{{ asset('uploads/images/' ~ r.file7) }}"
+                                        data-sub-html="<h4>Albher</h4><p>Imagenes de Habitación</p>">
+                                        <a href="">
+                                            <img class="img-thumbnail imagegallery" src="{{ asset('uploads/images/' ~ r.file7) }}">
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% if r.file8 != null %}
+                                    <li class="col-md-2" data-src="{{ asset('uploads/images/' ~ r.file8) }}"
+                                        data-sub-html="<h4>Albher</h4><p>Imagenes de Habitación</p>">
+                                        <a href="">
+                                            <img class="img-thumbnail imagegallery" src="{{ asset('uploads/images/' ~ r.file8) }}">
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% if r.file9 != null %}
+                                    <li class="col-md-2" data-src="{{ asset('uploads/images/' ~ r.file9) }}"
+                                        data-sub-html="<h4>Albher</h4><p>Imagenes de Habitación</p>">
+                                        <a href="">
+                                            <img class="img-thumbnail imagegallery" src="{{ asset('uploads/images/' ~ r.file9) }}">
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% if r.file10 != null %}
+                                    <li class="col-md-2" data-src="{{ asset('uploads/images/' ~ r.file10) }}"
+                                        data-sub-html="<h4>Albher</h4><p>Imagenes de Habitación</p>">
+                                        <a href="">
+                                            <img class="img-thumbnail imagegallery" src="{{ asset('uploads/images/' ~ r.file10) }}">
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% if r.file11 != null %}
+                                    <li class="col-md-2" data-src="{{ asset('uploads/images/' ~ r.file11) }}"
+                                        data-sub-html="<h4>Albher</h4><p>Imagenes de Habitación</p>">
+                                        <a href="">
+                                            <img class="img-thumbnail imagegallery" src="{{ asset('uploads/images/' ~ r.file11) }}">
+                                        </a>
+                                    </li>
+                                {% endif %}
+                                {% if r.file12 != null %}
+                                    <li class="col-md-2" data-src="{{ asset('uploads/images/' ~ r.file12) }}"
+                                        data-sub-html="<h4>Albher</h4><p>Imagenes de Habitación</p>">
+                                        <a href="">
+                                            <img class="img-thumbnail imagegallery" src="{{ asset('uploads/images/' ~ r.file12) }}">
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+</section>

@@ -1,0 +1,52 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <h1>Portada</h1>
+    <hr>
+    <a href="{{ path('admin_banner_new') }}">
+        <button class="btn btn-primary">Insertar</button>
+    </a>
+    <hr>
+    <table class="table dynamic">
+        <thead>
+        <tr>
+            <th>Orden de Prioridad</th>
+            <th>Texto Superior Español</th>
+            <th>Texto Superior Ingles</th>
+            <th>Texto Superior Alemán</th>
+            <th>Texto Inferior Español</th>
+            <th>Texto Inferior Ingles</th>
+            <th>Texto Inferior Alemán</th>
+            <th>Texto Completo Español</th>
+            <th>Texto Completo Ingles</th>
+            <th>Texto Completo Alemán</th>
+            <th>Imagen de Fondo</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for banner in banners %}
+            <tr>
+                <td>{{ banner.orden }}</td>
+                <td>{{ banner.textonees }}</td>
+                <td>{{ banner.textoneen }}</td>
+                <td>{{ banner.textonede }}</td>
+                <td>{{ banner.texttwoes }}</td>
+                <td>{{ banner.texttwoen }}</td>
+                <td>{{ banner.texttwode }}</td>
+                <td>{{ banner.fulles | slice(0,50) }}...</td>
+                <td>{{ banner.fullen | slice(0,50) }}...</td>
+                <td>{{ banner.fullde | slice(0,50) }}...</td>
+                <td><img class="img-thumbnail" src="{{ asset('uploads/images/'~ banner.file) }}"></td>
+                <td>
+                    <a href="{{ path('admin_banner_edit', { 'id': banner.id }) }}">
+                        <button class="btn btn-danger"><i class="fa fa-edit"></i></button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+

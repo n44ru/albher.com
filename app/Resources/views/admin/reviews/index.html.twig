@@ -1,0 +1,30 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+            <h1>Comentarios</h1>
+            <hr>
+            <table class="table dynamic">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Text</th>
+                    <th>Active</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for review in reviews %}
+                    <tr>
+                        <td>{{ review.id }}</td>
+                        <td>{{ review.name }}</td>
+                        <td>{{ review.text }}</td>
+                        <td>{{ review.active }}</td>
+                        <td>
+                            <a href="{{ path('admin_reviews_edit', { 'id': review.id }) }}"><button class="btn btn-danger"><i class="fa fa-edit"></i> </button> </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+{% endblock %}

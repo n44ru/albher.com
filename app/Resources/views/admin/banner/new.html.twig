@@ -1,0 +1,13 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <h1>Insertar Portada</h1>
+    <hr>
+    <a href="{{ path('admin_banner_index') }}"><button class="btn btn-primary">Volver</button></a>
+    <hr>
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <br>
+    <input type="submit" value="Insertar" class="btn btn-success"/>
+    {{ form_end(form) }}
+{% endblock %}

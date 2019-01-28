@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <link href="{{ asset('css/signin.css') }}" rel="stylesheet">
+    <!--/contact -->
+    <form class="form-signin text-center" action="{{ path('login') }}" method="post">
+        {#<img src="{{ asset('img/logo.png') }}">#}
+        <h1 class="h3 mb-3 font-weight-normal">Entre al Sistema</h1>
+        <input type="text" name="_username" class="form-control" placeholder="Nombre" required="" autofocus="" value="{{ last_username }}">
+        <br>
+        <input type="password" name="_password" class="form-control" placeholder="Contraseña" required="">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+        {% if error %}
+            <div class="text-center">
+                <p class="text-danger">* {{ error.messageKey|trans(error.messageData, 'security') }}</p>
+            </div>
+        {% endif %}
+    </form>
+{% endblock %}

@@ -1,0 +1,160 @@
+<!-- Portfolio Grid -->
+<section class="bg-light" id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading text-uppercase">{{ 'menu.servicios' | trans({}, 'base') }}</h2>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            {% set i=1 %}
+            {% for s in services %}
+                <div class="col-md-4 col-sm-6 portfolio-item">
+                    <a class="portfolio-link" data-toggle="modal" href="#portfolioModal{{ i }}">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-eye fa-3x"></i>
+                            </div>
+                        </div>
+                        <img class="img-fluid serv-image" src="{{ asset('uploads/images/' ~ s.file1) }}" alt="">
+                    </a>
+                    <div class="portfolio-caption bg-light">
+                        {% if locale=='es' %}
+                            <h4>{{ s.titlees }}</h4>
+                            <p class="text-muted">{{ s.textes | slice(0,20) }}...</p>
+                        {% elseif locale=='en' %}
+                            <h4>{{ s.titleen }}</h4>
+                            <p class="text-muted">{{ s.texten | slice(0,20) }}...</p>
+                        {% else %}
+                            <h4>{{ s.titlede }}</h4>
+                            <p class="text-muted">{{ s.textde | slice(0,20) }}...</p>
+                        {% endif %}
+
+                    </div>
+                </div>
+                {% set i= i+1 %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% set i=1 %}
+{% for s in services %}
+    <!-- Modal -->
+    <div class="portfolio-modal modal fade" id="portfolioModal{{ i }}" tabindex="-1" role="dialog"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                {% if locale=='es' %}
+                                    <h2 class="text-uppercase">{{ s.titlees }}</h2>
+                                    <p>{{ s.textes }}</p>
+                                {% elseif locale=='en' %}
+                                    <h2 class="text-uppercase">{{ s.titleen }}</h2>
+                                    <p>{{ s.texten }}</p>
+                                {% else %}
+                                    <h2 class="text-uppercase">{{ s.titlede }}</h2>
+                                    <p>{{ s.textde }}</p>
+                                {% endif %}
+                                <hr>
+                                <div id="carouselServicios{{ i }}" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item car-max active">
+                                            <img class="max-car" src="{{ asset('uploads/images/' ~ s.file1) }}"
+                                                 alt="Albher Service Photo">
+                                        </div>
+                                        {% if s.file2 != null %}
+                                            <div class="carousel-item car-max">
+                                                <img class="max-car"
+                                                     src="{{ asset('uploads/images/' ~ s.file2) }}"
+                                                     alt="Albher Service Photo">
+                                            </div>
+                                        {% endif %}
+                                        {% if s.file3 != null %}
+                                            <div class="carousel-item car-max">
+                                                <img class="max-car"
+                                                     src="{{ asset('uploads/images/' ~ s.file3) }}"
+                                                     alt="Albher Service Photo">
+                                            </div>
+                                        {% endif %}
+                                        {% if s.file4 != null %}
+                                            <div class="carousel-item car-max">
+                                                <img class="max-car"
+                                                     src="{{ asset('uploads/images/' ~ s.file4) }}"
+                                                     alt="Albher Service Photo">
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                    <a class="carousel-control-prev" href="#carouselServicios{{ i }}" role="button"
+                                       data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselServicios{{ i }}" role="button"
+                                       data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </div>
+                                <hr>
+                                {% if s.reserva | lower == 'si' %}
+                                    <h1> {{ 'book.book' | trans({}, 'base') }}</h1>
+                                    <br>
+                                    <form id="reservaForm" name="sentReserva" method="post">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <input class="form-control" type="text"
+                                                           name="s_name" placeholder="{{ 'contacto.n' | trans({}, 'base') }}" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input class="form-control" type="email"
+                                                           name="s_email" placeholder="{{ 'contacto.e' | trans({}, 'base') }}" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input class="form-control" type="tel"
+                                                           name="s_phone" placeholder="{{ 'contacto.t' | trans({}, 'base') }}" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input class="form-control" type="number"
+                                                           name="s_hours" placeholder="{{ 'book.arr' | trans({}, 'base') }}" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <input class="form-control" type="date"
+                                                           name="s_date" placeholder="Date of Arrival *" required>
+                                                </div>
+                                                <div class="form-group">
+                                                    <textarea class="form-control"
+                                                              name="s_text" placeholder="{{ 'book.add' | trans({}, 'base') }}"></textarea>
+                                                </div>
+                                                <input type="hidden" name="h_serv" value="{{ s.titlees }}">
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="col-lg-12 text-center">
+                                                <div id="success"></div>
+                                                <button id="sendMessageButton"
+                                                        class="btn btn-success btn-xl text-uppercase"
+                                                        type="submit"><i class="fa fa-send"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    <hr>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% set i=i+1 %}
+{% endfor %}
